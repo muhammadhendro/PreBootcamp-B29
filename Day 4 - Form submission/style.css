@@ -207,6 +207,7 @@ form button {
   border: none;
   color: #ffffff;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .section .right .socmed a {
