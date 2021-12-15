@@ -57,6 +57,9 @@ function renderBlog() {
           <p>
             ${blogs[i].content}
           </p>
+          <div style="text-align: right; font-size: 15px; color: grey;">
+          ${getDistanceTime(blogs[i].postAt)}
+            </div>
         </div>
       </div>`;
   }
@@ -73,13 +76,10 @@ function getFullTime(time) {
   return fullTime;
 }
 
-function getDistanceTime() {
-  let timePost = new Date(
-    "Wed Dec 14 2021 08:00:00 GMT+0700 (Western Indonesia Time)"
-  );
+function getDistanceTime(time) {
+ 
   let timeNow = new Date();
-
-  let distance = timeNow - timePost;
+  let distance = timeNow - time;
 
   // convert to day => ms in 1d
   let miliseconds = 1000; // 1ms in 1s
@@ -94,7 +94,7 @@ function getDistanceTime() {
       (miliseconds * secondInHours * hoursInDay * daysInMonth * monthInYear)
   );
   if (distanceYear >= 1) {
-    console.log(`${distanceYear} year ago`);
+    return `${distanceYear} year ago`
   } else {
     // convert to month
     let distanceMonth = Math.floor(
@@ -102,26 +102,36 @@ function getDistanceTime() {
     );
 
     if (distanceMonth >= 1) {
-      console.log(`${distanceMonth} month ago`);
+      return `${distanceMonth} month ago`
     } else {
       // convert to day
       let distanceDay = Math.floor(
         distance / (miliseconds * secondInHours * hoursInDay)
       );
       if (distanceDay >= 1) {
-        console.log(`${distanceDay} day ago`);
+        return `${distanceDay} day ago`
       } else {
         // convert to hour
         let distanceHours = Math.floor(distance / (miliseconds * 60 * 60));
         if (distanceHours >= 1) {
-          console.log(`${distanceHours} hours ago`);
+          return `${distanceHours} hours ago`
         } else {
           // convert to minute
           let distanceMinutes = Math.floor(distance / (miliseconds * 60));
-          console.log(`${distanceMinutes} minutes ago`);
+          if (distanceMinutes >= 1) {
+            return`${distanceMinutes} minutes ago`
+          } else {
+            let distanceSeconds = Math.floor(distance / miliseconds);
+            return `${distanceSeconds} seconds ago`
+          }
         }
       }
     }
   }
 }
-getDistanceTime();
+
+setInterval(()=>{
+
+  renderBlog()
+
+},1000)
