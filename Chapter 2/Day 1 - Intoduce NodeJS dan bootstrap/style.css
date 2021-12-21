@@ -1,0 +1,29 @@
+.bg-orange {
+  background-color: orangered;
+  border-radius: 10px;
+  padding
+}
+
+.text-orange {
+  color: orangered !important;
+}
+
+.navbar {
+  height: 7vh;
+}
+
+.container-fluid {
+  height: 93vh;
+}
+
+.container-form {
+  width: 400px;
+  font-weight: 500;
+  margin-top: -150px;
+}
+
+.container-form form input,.container-form form textarea{
+    background-color: rgb(247, 240, 240);
+    border-radius: 10px;
+}
+
