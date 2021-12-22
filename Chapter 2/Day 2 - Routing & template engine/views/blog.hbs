@@ -1,0 +1,79 @@
+
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog" class="list-active">Blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <a href="/contact"> Contact Me </a>
+      </div>
+    </nav>
+
+    <!-- Blog -->
+    <!-- Form -->
+    <div class="">
+    <div class="blog">
+      
+      <div style="text-align: right; padding-right: 200px; margin-top: 50px">
+        {{#if isLogin}}
+        <a href="add-blog" class="buttonAddBlog">Add New Blog</a>
+      {{/if}}
+      </div>
+      
+      <div id="contents" class="blog-list">
+        <!-- dynamic content would be here -->
+        <div class="blog-list-item">
+          <div class="blog-image">
+            <img src="public/assets/blog-img.png" alt="" />
+          </div>
+          <div class="blog-content">
+             {{#if isLogin}}
+            <div class="btn-group">
+              <button class="btn-edit">Edit Post</button>
+              <button class="btn-post">Delete Blog</button>
+            </div>
+            {{/if}}
+            <h1>
+              <a href="/detail-blog/77" target="_blank"
+                >Pasar Coding di Indonesia Dinilai Masih Menjanjikan</a
+              >
+            </h1>
+            <div class="detail-blog-content">
+              12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah
+            </div>
+            <p>
+              Ketimpangan sumber daya manusia (SDM) di sektor digital masih
+              menjadi isu yang belum terpecahkan. Berdasarkan penelitian
+              ManpowerGroup, ketimpangan SDM global, termasuk Indonesia,
+              meningkat dua kali lipat dalam satu dekade terakhir. Lorem ipsum,
+              dolor sit amet consectetur adipisicing elit. Quam, molestiae
+              numquam! Deleniti maiores expedita eaque deserunt quaerat! Dicta,
+              eligendi debitis?
+            </p>
+            <div style="text-align: right; font-size: 15px; color: grey;">
+              1 day ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="public/blog.js"></script>
+  </body>
+</html>
