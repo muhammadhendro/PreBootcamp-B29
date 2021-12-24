@@ -1,0 +1,18 @@
+{
+  "name": "personal-web-blog",
+  "version": "1.0.0",
+  "description": "personal web",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "express": "^4.17.2",
+    "g": "^2.0.1",
+    "hbs": "^4.2.0"
+  }
+}

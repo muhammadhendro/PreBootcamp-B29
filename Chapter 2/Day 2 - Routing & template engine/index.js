@@ -24,14 +24,14 @@ app.get('/contact', (req, res) => {
     res.render('contact', {title: 'Contact Me'})
 })
 
-app.get('/detail-blog/:id', function(req,res){
+app.get('/detail-blog/:id', (req,res) => {
 
     let id = req.params.id
 
     res.render('blog-detail', { id ,title: 'Blog Page Detail'}) 
 })
 
-app.post('/blog', function(req,res){
+app.post('/blog', (req,res) => {
     console.log(req.body)
 })
 

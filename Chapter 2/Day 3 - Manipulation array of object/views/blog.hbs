@@ -1,0 +1,75 @@
+
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="public/style.css" />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav>
+      <div class="left">
+        <a href="/">
+          <img src="public/assets/logo2.png" alt="logo" style="width: 50px;" />
+        </a>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/blog" class="list-active">Blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <a href="/contact"> Contact Me </a>
+      </div>
+    </nav>
+
+    <!-- Blog -->
+    <!-- Form -->
+    <div class="">
+    <div class="blog">
+      
+      <div style="text-align: right; padding-right: 200px; margin-top: 50px">
+        {{#if isLogin}}
+        <a href="add-blog" class="buttonAddBlog">Add New Blog</a>
+      {{/if}}
+      </div>
+      
+      <div id="contents" class="blog-list">
+        <!-- dynamic content would be here -->
+        {{#each blogs}}
+        <div class="blog-list-item">
+          <div class="blog-image">
+            <img src="public/assets/blog-img.png" alt="" />
+          </div>
+          <div class="blog-content">
+             {{#if this.isLogin}}
+            <div class="btn-group">
+              <a href="/edit-blog/{{@index}}" class="btn-edit">Edit Post</a>
+              <a href="/delete-blog/{{@index}}" class="btn-post" onclick=" return confirm('Yakin ingin dihapus?')" >Delete Blog</a>
+            </div>
+            {{/if}}
+            <h1>
+              <a href="/detail-blog/77" target="_blank"
+                >{{this.title}}</a
+              >
+            </h1>
+            <div class="detail-blog-content">
+              {{this.post_at}} | {{this.author}}
+            </div>
+            <p>
+              {{this.content}}
+            </p>
+            <div style="text-align: right; font-size: 15px; color: grey;">
+              1 day ago
+            </div>
+          </div>
+        </div>
+        {{/each }}
+      </div>
+    </div>
+    </div>
+    <script src="public/blog.js"></script>
+  </body>
+</html>
