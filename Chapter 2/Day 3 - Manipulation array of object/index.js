@@ -45,7 +45,7 @@ app.get("/blog", (req, res) => {
   let newBlogs = blogs.map((data) => {
     return { ...data, isLogin };
   });
-  
+
   res.render("blog", { isLogin, blogs: newBlogs, title: "Creating Blog Page" });
 });
 
@@ -72,24 +72,37 @@ app.post("/blog", (req, res) => {
 
   blogs.push(data);
   res.redirect("/blog");
-  
 });
 
-app.get('/delete-blog/:index', (req,res) => {
-    let index = req.params.index
-    blogs.splice(index, 1)
-    res.redirect('/blog')
-})
+app.get("/delete-blog/:index", (req, res) => {
+  let index = req.params.index;
+  blogs.splice(index, 1);
+  res.redirect("/blog");
+});
 
-app.get('/edit-blog/:index', (req,res) => {
-    let index = req.params.index
-    let newBlogs = blogs.map((data) => {
-        return { ...data };
-      });
-    
-    res.render("edit-blog", {index, judul: 'Edit Blog'})
-   console.log(newBlogs)
-})
+app.get("/edit-blog/:index", (req, res) => {
+  let index = req.params.index;
+  let title = blogs[index].title;
+  let content = blogs[index].content;
+
+  res.render("edit-blog", { index, title, content, judul: "Edit Blog" });
+});
+app.post("/edit-blog/", (req, res) => {
+  let data = req.body;
+
+  let index = data.index;
+  
+ 
+  
+  blogs[index] = {
+    title : data.title,
+    content : data.content,
+    author: "Muhammad Hendro",
+    post_at: getFullTime(new Date()),
+  }
+  console.log(blogs)
+  res.redirect("/blog");
+});
 
 app.use("/", (req, res) => {
   res.status(404);

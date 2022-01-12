@@ -31,15 +31,19 @@
      <div class="blog">
       <div class="blog-form">
         <div class="form-container">
-          <form action="/blog" method="POST" class="formBlog">
+          <form action="/edit-blog" method="POST" class="formBlog">
             <h1>Edit Post Blog</h1>
+             <div>
+              
+              <input type="hidden" name="index" id="index" value="{{index}}"/>
+            </div>
             <div>
               <label for="input-blog-title">Title</label>
-              <input name="title" id="input-blog-title" />
+              <input name="title" id="input-blog-title" value="{{title}}"/>
             </div>
             <div>
               <label for="input-blog-content">Content</label>
-              <textarea name="content" id="input-blog-content"></textarea>
+              <textarea name="content" id="input-blog-content">{{content}}</textarea>
             </div>
             <div class="mb-3">
             <label for="formFile" class="form-label">Upload Image</label>
